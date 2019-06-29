@@ -23,6 +23,6 @@
         mode: 0700
     
     - name: install linuxbrew
-      command:
-        args: bash /tmp/install-linuxbrew
+      command: /tmp/install-linuxbrew
+      args: 
         creates: /home/linuxbrew/.linuxbrew/bin/brew
