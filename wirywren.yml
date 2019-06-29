@@ -1,0 +1,6 @@
+---
+- name: install nvidia graphics drivers
+  become: yes
+  hosts: localhost
+  roles:
+    - nvidia_nonfree
