@@ -6,6 +6,12 @@
     mode: 0775
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
+  
+- name: install prerequisites
+  package:
+    name:
+      - "@development-tools"
+      - ruby
 
 - name: check if already installed
   stat:
