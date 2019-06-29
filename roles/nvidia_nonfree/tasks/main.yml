@@ -1,0 +1,8 @@
+---
+- name: install Nvidia nonfree drivers
+  package:
+    name:
+      - xorg-x11-drv-nvidia
+      - xorg-x11-drv-nvidia-cuda
+      - akmod-nvidia
+    state: present

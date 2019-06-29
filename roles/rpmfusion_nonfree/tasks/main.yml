@@ -10,6 +10,7 @@
       when: not rpmfusion_nonfree.stat.exists
       package:
         name: "https://download1.rpmfusion.org/{{ item }}/fedora/rpmfusion-{{ item }}-release-{{ ansible_facts['distribution_version'] }}.noarch.rpm"
+        state: present
       loop:
         - free
         - nonfree
