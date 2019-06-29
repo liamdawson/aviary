@@ -4,3 +4,9 @@
   hosts: localhost
   roles:
     - nvidia_nonfree
+
+- name: install usual tools
+  become: yes
+  hosts: localhost
+  roles:
+    - tools

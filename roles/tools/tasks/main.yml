@@ -1,0 +1,15 @@
+---
+- name: install expected packages
+  package:
+    name:
+      - git
+      - fish
+      - vim
+      - gnupg2
+    state: present
+
+- name: install vscode
+  snap:
+    name: code
+    classic: yes
+    state: present
