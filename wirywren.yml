@@ -10,3 +10,4 @@
   hosts: localhost
   roles:
     - tools
+    - homebrew

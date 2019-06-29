@@ -2,6 +2,7 @@
 - name: install expected packages
   package:
     name:
+      - "@development-tools"
       - git
       - fish
       - vim

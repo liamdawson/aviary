@@ -1,0 +1,28 @@
+---
+- name: setup linuxbrew folder
+  file:
+    path: /home/linuxbrew
+    state: directory
+    mode: 0775
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+
+- name: check if already installed
+  stat:
+    path: /home/linuxbrew/.linuxbrew/bin/brew
+  register: linuxbrew_binary
+
+- name: install linuxbrew
+  when: not linuxbrew_binary.stat.exists
+  become: no
+  block:
+    - name: download linuxbrew install script
+      get_url:
+        url: https://raw.githubusercontent.com/Linuxbrew/install/master/install
+        dest: /tmp/install-linuxbrew
+        mode: 0700
+    
+    - name: install linuxbrew
+      command:
+        args: bash /tmp/install-linuxbrew
+        creates: /home/linuxbrew/.linuxbrew/bin/brew
