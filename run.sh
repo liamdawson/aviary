@@ -9,4 +9,5 @@ fi
 
 cd "${HOME}/.aviary"
 
-ansible-playbook -i "$(hostname) ansible_connection=local ansible_host=127.0.0.1," "$(hostname).yml"
+sudo -v
+ansible-playbook -i "$(hostname -s) ansible_connection=local ansible_host=127.0.0.1," "$(hostname -s).yml"
