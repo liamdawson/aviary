@@ -4,7 +4,10 @@ set -eu
 
 if [ ! -d "${HOME}/.aviary" ]
 then
-  git clone git@github.com:/liamdawson/aviary "${HOME}/.aviary"
+  git clone https://github.com/liamdawson/aviary.git "${HOME}/.aviary"
+  cd "${HOME}/.aviary"
+  git remote set-url origin git@github.com:/liamdawson/aviary.git
+  git remote add anonymous git@github.com:/liamdawson/aviary.git
 fi
 
 cd "${HOME}/.aviary"
