@@ -16,3 +16,11 @@
     - tools
     - homebrew
     - gnupg_ssh
+
+- name: system configuration
+  become: yes
+  hosts: localhost
+  tags:
+    - cinnamon
+  roles:
+    - cinnamon_settings

@@ -1,0 +1,13 @@
+---
+- name: install prereq package
+  package:
+    name: python-psutil
+    state: present
+
+- name: set cinnamon setting defaults
+  become: no
+  dconf:
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
+    state: present
+  loop: "{{ cinnamon_settings | dict2items }}"
