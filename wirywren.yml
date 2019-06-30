@@ -2,12 +2,17 @@
 - name: install nvidia graphics drivers
   become: yes
   hosts: localhost
+  tags:
+    - hardware
   roles:
-    - nvidia_nonfree
+    - nvidia_bumblebee
 
 - name: install usual tools
   become: yes
   hosts: localhost
+  tags:
+    - software
   roles:
     - tools
     - homebrew
+    - gnupg_ssh

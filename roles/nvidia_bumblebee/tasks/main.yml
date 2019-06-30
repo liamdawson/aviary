@@ -1,0 +1,38 @@
+---
+- name: enable bumblebee repo
+  command: dnf copr enable chenxiaolong/bumblebee -y
+  args:
+    creates: /etc/yum.repos.d/_copr_chenxiaolong-bumblebee.repo
+
+- name: install bumblebee
+  package:
+    name:
+      - akmod-bbswitch
+      - bumblebee
+      - primus
+    state: present
+  register: bumblebee_packages
+
+- name: reload systemd daemon
+  when: bumblebee_packages.changed
+  systemd:
+    daemon_reload: yes
+
+- name: enable bumblebee
+  systemd:
+    name: bumblebeed
+    masked: no
+    enabled: yes
+
+- name: disable nouveau fallback
+  systemd:
+    name: nvidia-fallback
+    masked: yes
+    state: stopped
+
+- name: add user to bumblebee group
+  user:
+    name: "{{ ansible_user }}"
+    append: yes
+    groups:
+      - bumblebee

@@ -6,7 +6,6 @@
       - git
       - fish
       - vim
-      - gnupg2
     state: present
 
 - name: install vscode

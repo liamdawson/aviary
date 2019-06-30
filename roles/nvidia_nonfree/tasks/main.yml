@@ -5,4 +5,5 @@
       - xorg-x11-drv-nvidia
       - xorg-x11-drv-nvidia-cuda
       - akmod-nvidia
+      - acpi
     state: present

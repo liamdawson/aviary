@@ -1,0 +1,5 @@
+# /etc/X11/xinit/xinitrc.d/99-prevent-ssh-agent
+
+if [ -z "$SSH_AGENT" ]; then
+  SSH_AGENT="no"
+fi

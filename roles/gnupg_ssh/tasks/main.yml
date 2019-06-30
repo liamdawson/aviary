@@ -1,0 +1,8 @@
+---
+- name: configure gnupg ssh for macos
+  when: ansible_facts['os_family'] == "Darwin"
+  import_tasks: macos.yml
+
+- name: configure gnupg ssh for linux
+  when: ansible_facts['system'] == "Linux"
+  import_tasks: linux.yml

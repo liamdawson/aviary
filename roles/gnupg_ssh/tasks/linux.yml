@@ -1,0 +1,84 @@
+---
+- name: ensure gnupg2 packages installed
+  package:
+    name:
+      - gnupg2
+      - pinentry-gnome3
+    state: present
+
+- name: perform user-level actions
+  become: no
+  block:
+    - name: ensure user units config directory
+      file:
+        path: "~/.config/systemd/user/"
+        state: directory
+        mode: 0750
+        recurse: yes
+        follow: no
+
+    - name: link gnupg2 systemd user units
+      file:
+        path: "~/.config/systemd/user/{{ item }}"
+        src: "/usr/share/doc/gnupg2/examples/systemd-user/{{ item }}"
+        state: link
+      loop:
+        - dirmngr.service
+        - gpg-agent.service
+        - dirmngr.socket
+        - gpg-agent.socket
+        - gpg-agent-ssh.socket
+      register: gnupg2_systemd_links
+
+    - name: reload systemd daemon
+      when: gnupg2_systemd_links.changed
+      systemd:
+        scope: user
+        daemon_reload: yes
+
+    - name: enable gnupg2 systemd user units
+      systemd:
+        name: "{{ item }}"
+        scope: user
+        enabled: yes
+      loop:
+        - dirmngr.socket
+        - gpg-agent.socket
+        - gpg-agent-ssh.socket
+
+    - name: check if gnome keyring is blocked at the user level
+      stat:
+        path: ~/.config/autostart/gnome-keyring-ssh.desktop
+      register: user_gnome_keyring_autostart
+
+    - name: check if gnome keyring is configured to start
+      when: not user_gnome_keyring_autostart.stat.exists
+      stat:
+        path: /etc/xdg/autostart/gnome-keyring-ssh.desktop
+      register: gnome_keyring_autostart
+    
+    - name: prevent gnome keyring from autostarting
+      when: not user_gnome_keyring_autostart.stat.exists and gnome_keyring_autostart.stat.exists
+      block:
+        - name: copy existing definition
+          copy:
+            remote_src: yes
+            src: /etc/xdg/autostart/gnome-keyring-ssh.desktop
+            dest: ~/.config/autostart/gnome-keyring-ssh.desktop
+            mode: 0750
+            owner: "{{ ansible_user }}"
+            group: "{{ ansible_user }}"
+        
+        - name: disable gnome keyring autostart
+          lineinfile:
+            path: ~/.config/autostart/gnome-keyring-ssh.desktop
+            state: present
+            insertafter: "^Type=.*$"
+            regexp: "^Hidden=.*$"
+            line: "Hidden=true"
+
+- name: prevent ssh-agent autostart
+  copy:
+    src: xinit-prevent-ssh-agent
+    dest: /etc/X11/xinit/xinitrc.d/99-prevent-ssh-agent
+    mode: 0755
