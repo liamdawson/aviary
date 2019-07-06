@@ -1,6 +1,5 @@
 ---
 - name: install nvidia graphics drivers
-  become: yes
   hosts: localhost
   tags:
     - hardware
