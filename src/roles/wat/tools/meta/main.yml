@@ -1,4 +1,4 @@
 ---
 dependencies:
-  - role: base_services
+  - role: fedora/snapd
   - role: homebrew

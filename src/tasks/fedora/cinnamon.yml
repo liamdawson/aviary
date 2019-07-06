@@ -10,4 +10,4 @@
     key: "{{ item.key }}"
     value: "{{ item.value }}"
     state: present
-  loop: "{{ cinnamon_settings | dict2items }}"
+  loop: "{{ vanity.cinnamon_settings | dict2items }}"

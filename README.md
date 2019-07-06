@@ -10,3 +10,7 @@ curl -fsSL https://raw.githubusercontent.com/liamdawson/aviary/master/run.sh | s
 ## Wiry Wren
 
 * Remember to add `acpi_rev_override=1` to `/etc/default/grub`
+
+```shell
+sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+```

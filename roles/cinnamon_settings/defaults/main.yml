@@ -1,9 +1,0 @@
----
-cinnamon_settings:
-  /org/cinnamon/settings-daemon/peripherals/touchpad/natural-scroll: "false"
-  /org/cinnamon/settings-daemon/peripherals/touchpad/clickpad-click: "2"
-  /org/cinnamon/settings-daemon/peripherals/touchpad/horizontal-scrolling: "true"
-  /org/cinnamon/desktop/background/picture-uri: "'file:///usr/share/backgrounds/f30/extras/sunset-on-skye.jpg'"
-  /org/cinnamon/desktop/background/picture-options: "'zoom'"
-  /org/cinnamon/enable-indicators: "true"
-  /org/cinnamon/desktop/interface/gtk-theme: "'Mint-Y-Darker-Aqua'"

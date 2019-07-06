@@ -1,0 +1,11 @@
+---
+- name: install brew packages
+  homebrew:
+    path: "/home/linuxbrew/.linuxbrew/bin:/usr/local/bin"
+    name:
+      - git
+      - vim
+      - fish
+      - nodenv
+      - rbenv
+      - pyenv
