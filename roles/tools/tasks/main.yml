@@ -1,5 +1,6 @@
 ---
 - name: install expected packages
+  become: yes
   package:
     name:
       - "@development-tools"
@@ -10,42 +11,38 @@
       - libxcrypt-compat
     state: present
 
-- name: base fisher config
-  become: no
-  block:
-    - name: create fish config directories
-      file:
-        path: ~/.config/fish/conf.d
-        state: directory
+- name: create fish config directories
+  file:
+    path: ~/.config/fish/conf.d
+    state: directory
 
-    - name: add fisher config
-      copy:
-        src: "{{ item.key }}"
-        dest: "{{ item.value }}"
-      loop:
-        - key: install-fisher.fish
-          value: "~/.config/fish/conf.d/install-fisher.fish"
-        - key: fishfile
-          value: "~/.config/fish/fishfile"
+- name: add fisher config
+  copy:
+    src: "{{ item.key }}"
+    dest: "{{ item.value }}"
+  loop:
+    - key: install-fisher.fish
+      value: "~/.config/fish/conf.d/install-fisher.fish"
+    - key: fishfile
+      value: "~/.config/fish/fishfile"
 
-    - name: general fish config
-      copy:
-        src: "{{ item }}"
-        dest: "~/.config/fish/conf.d/{{ item }}"
-      loop:
-        - local-bin.fish
+- name: general fish config
+  copy:
+    src: "{{ item }}"
+    dest: "~/.config/fish/conf.d/{{ item }}"
+  loop:
+    - local-bin.fish
 
-    - name: linux specific fish config
-      when: ansible_facts['system'] == "Linux"
-      copy:
-        src: "{{ item }}"
-        dest: "~/.config/fish/conf.d/{{ item }}"
-      loop:
-        - linux-homebrew.fish
-        - linux-snap.fish
+- name: linux specific fish config
+  when: ansible_facts['system'] == "Linux"
+  copy:
+    src: "{{ item }}"
+    dest: "~/.config/fish/conf.d/{{ item }}"
+  loop:
+    - linux-homebrew.fish
+    - linux-snap.fish
 
 - name: install brew packages
-  become: no
   homebrew:
     path: "/home/linuxbrew/.linuxbrew/bin:/usr/local/bin"
     name:
@@ -57,6 +54,7 @@
       - pyenv
 
 - name: install vscode
+  become: yes
   snap:
     name: code
     classic: yes

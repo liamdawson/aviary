@@ -1,11 +1,11 @@
 ---
 - name: install prereq package
+  become: yes
   package:
     name: python-psutil
     state: present
 
 - name: set cinnamon setting defaults
-  become: no
   dconf:
     key: "{{ item.key }}"
     value: "{{ item.value }}"

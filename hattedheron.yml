@@ -1,12 +1,4 @@
 ---
-- name: install nvidia graphics drivers
-  become: yes
-  hosts: localhost
-  tags:
-    - hardware
-  roles:
-    - nvidia_bumblebee
-
 - name: install usual tools
   hosts: localhost
   tags:
@@ -22,3 +14,4 @@
     - cinnamon
   roles:
     - cinnamon_settings
+

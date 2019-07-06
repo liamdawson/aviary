@@ -1,5 +1,6 @@
 ---
 - name: install Nvidia nonfree drivers
+  become: yes
   package:
     name:
       - xorg-x11-drv-nvidia
