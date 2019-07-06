@@ -1,4 +1,6 @@
 ---
+- import_tasks: rpmfusion_nonfree.yml
+
 - name: install Nvidia nonfree drivers
   become: yes
   package:

@@ -1,4 +1,0 @@
----
-dependencies:
-  - role: fedora/snapd
-  - role: homebrew

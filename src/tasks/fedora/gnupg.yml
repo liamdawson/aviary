@@ -10,7 +10,7 @@
 - name: set ssh auth socket to gnupg ssh socket, before xinit sets it to ssh-agent
   become: yes
   copy:
-    src: 99-gpg-ssh-agent.sh
+    src: gnupg/99-gpg-ssh-agent.sh
     dest: /etc/X11/xinit/xinitrc.d/99-gpg-ssh-agent.sh
     mode: 0755
 

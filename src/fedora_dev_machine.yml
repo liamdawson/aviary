@@ -1,0 +1,9 @@
+---
+- import_tasks: tasks/fedora/dev_tools.yml
+- import_tasks: tasks/fedora/homebrew.yml
+- import_tasks: tasks/fedora/gnupg.yml
+- import_tasks: tasks/fedora/gui_dev_tools.yml
+- import_tasks: tasks/fedora/shell.yml
+- import_tasks: tasks/fedora/cinnamon.yml
+- import_tasks: tasks/shared/dev_tools.yml
+- import_tasks: tasks/shared/shell.yml

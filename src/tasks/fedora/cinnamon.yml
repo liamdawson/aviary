@@ -1,8 +1,10 @@
 ---
-- name: install prereq package
+- name: install task packages
   become: yes
   package:
-    name: python-psutil
+    name: 
+      - python3-psutil
+      - neofetch
     state: present
 
 - name: set cinnamon setting defaults

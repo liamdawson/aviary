@@ -1,23 +1,6 @@
 ---
-- name: install nvidia graphics drivers
-  hosts: localhost
-  tags:
-    - hardware
-  roles:
-    - fedora/hardware/nvidia_bumblebee
-
-- name: install usual tools
-  hosts: localhost
-  tags:
-    - software
-  roles:
-    - tools
-    - fedora/homebrew
-    - gnupg_ssh
-
-- name: system configuration
-  hosts: localhost
-  tags:
-    - cinnamon
-  roles:
-    - vanity/cinnamon_settings
+- name: setup machine
+  hosts: wirywren
+  tasks:
+    - import_tasks: tasks/fedora/nvidia_bumblebee.yml
+    - import_tasks: fedora_dev_machine.yml

@@ -7,4 +7,7 @@ vanity:
     /org/cinnamon/desktop/background/picture-uri: "'file:///usr/share/backgrounds/f30/extras/sunset-on-skye.jpg'"
     /org/cinnamon/desktop/background/picture-options: "'zoom'"
     /org/cinnamon/enable-indicators: "true"
-    /org/cinnamon/desktop/interface/gtk-theme: "'Mint-Y-Darker-Aqua'"
+    /org/cinnamon/desktop/wm/preferences/theme: "'Adapta-Nokto-Eta'"
+    /org/cinnamon/desktop/interface/gtk-theme: "'Adapta'"
+    /org/cinnamon/theme/name: "'Mint-Y-Dark-Purple'"
+    /org/cinnamon/desktop/interface/icon-theme: "'Paper'"

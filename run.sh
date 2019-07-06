@@ -12,5 +12,15 @@ fi
 
 cd "${HOME}/.aviary"
 
+if [ -x "/usr/bin/python3" ]; then
+  python_path="/usr/bin/python3"
+else
+  python_path="/usr/bin/python"
+fi
+
 sudo -v
-ansible-playbook -i "$(hostname -s) ansible_connection=local ansible_host=127.0.0.1," "src/$(hostname -s).yml" $@
+ansible-playbook \
+  -i "$(hostname -s)," \
+  -e "ansible_connection=local ansible_python_interpreter=${python_path}" \
+     "src/$(hostname -s).yml" \
+     $@

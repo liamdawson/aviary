@@ -1,16 +1,5 @@
 ---
-- name: install usual tools
-  hosts: localhost
-  tags:
-    - software
-  roles:
-    - tools
-    - fedora/homebrew
-    - gnupg_ssh
-
-- name: system configuration
-  hosts: localhost
-  tags:
-    - cinnamon
-  roles:
-    - vanity/cinnamon_settings
+- name: setup machine
+  hosts: hattedheron
+  tasks:
+    - import_tasks: fedora_dev_machine.yml

@@ -1,4 +1,6 @@
 ---
+- import_tasks: nvidia_nonfree.yml
+
 - name: enable bumblebee repo
   become: yes
   command: dnf copr enable chenxiaolong/bumblebee -y
