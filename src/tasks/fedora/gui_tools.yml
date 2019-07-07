@@ -1,11 +1,11 @@
 ---
 - import_tasks: snapd.yml
 
-- name: install vscode
+- name: install confined gui snaps
   become: yes
   async: 600
   poll: 0
   snap:
-    name: code
-    classic: yes
     state: present
+    name:
+      - snap-store

@@ -1,0 +1,12 @@
+---
+- name: create themes directory
+  file:
+    path: "~/.local/share/themes"
+    state: directory
+
+- name: install themes
+  unarchive:
+    dest: "~/.local/share/themes/"
+    src: "{{ item.src }}"
+    creates: "~/.local/share/themes/{{ item.name }}"
+  loop: "{{ vanity.gtk_themes }}"

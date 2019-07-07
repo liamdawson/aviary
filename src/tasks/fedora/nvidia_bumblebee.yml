@@ -5,7 +5,8 @@
   become: yes
   command: dnf copr enable chenxiaolong/bumblebee -y
   args:
-    creates: /etc/yum.repos.d/_copr_chenxiaolong-bumblebee.repo
+    creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:chenxiaolong:bumblebee.repo
+    warn: false
 
 - name: install bumblebee
   become: yes

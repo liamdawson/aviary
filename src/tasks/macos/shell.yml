@@ -1,8 +1,8 @@
 ---
 - name: install expected packages
   become: yes
-  package:
+  brew:
     name:
       - fish
-      - libnotify
+      - terminal-notifier
     state: present

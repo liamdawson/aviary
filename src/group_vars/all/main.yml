@@ -11,3 +11,7 @@ vanity:
     /org/cinnamon/desktop/interface/gtk-theme: "'Adapta'"
     /org/cinnamon/theme/name: "'Mint-Y-Dark-Purple'"
     /org/cinnamon/desktop/interface/icon-theme: "'Paper'"
+  gtk_themes:
+    - name: Sweet-mars
+      src: gtk/Sweet-mars.tar.xz
+      
