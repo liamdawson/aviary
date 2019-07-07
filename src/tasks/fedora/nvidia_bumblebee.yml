@@ -3,10 +3,12 @@
 
 - name: enable bumblebee repo
   become: yes
-  command: dnf copr enable chenxiaolong/bumblebee -y
-  args:
-    creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:chenxiaolong:bumblebee.repo
-    warn: false
+  yum_repository:
+    name: chenxiaolong_bumblebee
+    description: copr for bumblebee
+    baseurl: https://copr-be.cloud.fedoraproject.org/results/chenxiaolong/bumblebee/fedora-$releasever-$basearch/
+    gpgkey: https://copr-be.cloud.fedoraproject.org/results/chenxiaolong/bumblebee/pubkey.gpg
+    skip_if_unavailable: yes
 
 - name: install bumblebee
   become: yes

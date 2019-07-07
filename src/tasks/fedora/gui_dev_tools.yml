@@ -1,11 +1,38 @@
 ---
 - import_tasks: snapd.yml
 
-- name: install vscode
+- name: enable bumblebee repo
+  become: yes
+  yum_repository:
+    name: gagbo_kitty-latest
+    description: copr for kitty
+    baseurl: https://copr-be.cloud.fedoraproject.org/results/gagbo/kitty-latest/fedora-$releasever-$basearch/
+    gpgkey: https://copr-be.cloud.fedoraproject.org/results/gagbo/kitty-latest/pubkey.gpg
+    skip_if_unavailable: yes
+
+- name: enable vscode repo
+  become: yes
+  yum_repository:
+    name: microsoft_vscode
+    description: Visual Studio Code
+    baseurl: https://packages.microsoft.com/yumrepos/vscode
+    gpgkey: https://packages.microsoft.com/keys/microsoft.asc
+    gpgcheck: yes
+    skip_if_unavailable: yes
+
+- name: install tools
+  become: yes
+  package:
+    name: 
+      - code
+      - kitty
+    state: present
+
+- name: uninstall vscode via snap
   become: yes
   async: 600
   poll: 0
   snap:
     name: code
     classic: yes
-    state: present
+    state: absent
