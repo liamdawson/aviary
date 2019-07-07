@@ -10,7 +10,7 @@ vanity:
     /org/cinnamon/desktop/wm/preferences/theme: "'Sweet-Ambar'"
     /org/cinnamon/desktop/interface/gtk-theme: "'Sweet-Ambar'"
     /org/cinnamon/theme/name: "'Mint-Y-Dark-Purple'"
-    /org/cinnamon/desktop/interface/icon-theme: "'Paper'"
+    /org/cinnamon/desktop/interface/icon-theme: "'Tela'"
   gtk_themes:
     - name: Sweet
       src: gtk/Sweet.tar.xz
@@ -18,4 +18,6 @@ vanity:
       src: gtk/Sweet-mars.tar.xz
     - name: Sweet-Ambar
       src: gtk/Sweet-Ambar.tar.xz
-      
+  icons:
+    - name: Tela
+      src: icons/Tela.tar.xz

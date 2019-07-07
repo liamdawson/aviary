@@ -1,0 +1,12 @@
+---
+- name: create icons directory
+  file:
+    path: "~/.local/share/icons"
+    state: directory
+
+- name: install icons
+  unarchive:
+    dest: "~/.local/share/icons/"
+    src: "{{ item.src }}"
+    creates: "~/.local/share/icons/{{ item.name }}"
+  loop: "{{ vanity.icons }}"
