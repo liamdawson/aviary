@@ -7,11 +7,15 @@ vanity:
     /org/cinnamon/desktop/background/picture-uri: "'file:///usr/share/backgrounds/f30/extras/sunset-on-skye.jpg'"
     /org/cinnamon/desktop/background/picture-options: "'zoom'"
     /org/cinnamon/enable-indicators: "true"
-    /org/cinnamon/desktop/wm/preferences/theme: "'Adapta-Nokto-Eta'"
-    /org/cinnamon/desktop/interface/gtk-theme: "'Adapta'"
+    /org/cinnamon/desktop/wm/preferences/theme: "'Sweet-Ambar'"
+    /org/cinnamon/desktop/interface/gtk-theme: "'Sweet-Ambar'"
     /org/cinnamon/theme/name: "'Mint-Y-Dark-Purple'"
     /org/cinnamon/desktop/interface/icon-theme: "'Paper'"
   gtk_themes:
+    - name: Sweet
+      src: gtk/Sweet.tar.xz
     - name: Sweet-mars
       src: gtk/Sweet-mars.tar.xz
+    - name: Sweet-Ambar
+      src: gtk/Sweet-Ambar.tar.xz
       
