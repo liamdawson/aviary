@@ -1,0 +1,11 @@
+---
+- name: install system level comm packages
+  become: yes
+  package:
+    name:
+      - finch
+      - pidgin
+      - pidgin-discord
+      - pidgin-libsteam
+      - purple-telegram
+    state: present

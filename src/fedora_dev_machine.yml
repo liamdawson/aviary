@@ -1,11 +1,42 @@
 ---
 - import_tasks: tasks/fedora/dev_tools.yml
+  tags:
+    - dev
+    - tools
 - import_tasks: tasks/fedora/homebrew.yml
+  tags:
+    - brew
+    - tools
 - import_tasks: tasks/fedora/gnupg.yml
+  tags:
+    - gnupg
+    - tools
 - import_tasks: tasks/fedora/gui_dev_tools.yml
+  tags:
+    - gui
+    - dev
+    - tools
 - import_tasks: tasks/fedora/gui_tools.yml
+  tags:
+    - gui
+    - tools
+- import_tasks: tasks/fedora/comms.yml
+  tags:
+    - comms
+    - tools
 - import_tasks: tasks/fedora/shell.yml
+  tags:
+    - shell
 - import_tasks: tasks/fedora/gtk.yml
+  tags:
+    - vanity
 - import_tasks: tasks/fedora/cinnamon.yml
+  tags:
+    - vanity
 - import_tasks: tasks/shared/dev_tools.yml
+  tags:
+    - dev
+    - tools
 - import_tasks: tasks/shared/shell.yml
+  tags:
+    - shell
