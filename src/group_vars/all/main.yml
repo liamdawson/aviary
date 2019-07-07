@@ -4,12 +4,12 @@ vanity:
     /org/cinnamon/settings-daemon/peripherals/touchpad/natural-scroll: "false"
     /org/cinnamon/settings-daemon/peripherals/touchpad/clickpad-click: "2"
     /org/cinnamon/settings-daemon/peripherals/touchpad/horizontal-scrolling: "true"
-    /org/cinnamon/desktop/background/picture-uri: "'file:///usr/share/backgrounds/f30/extras/sunset-on-skye.jpg'"
+    /org/cinnamon/desktop/background/picture-uri: "'file:///home/linuxbrew/.linuxbrew/share/backgrounds/light-dil-680602-unsplash.jpg'"
     /org/cinnamon/desktop/background/picture-options: "'zoom'"
     /org/cinnamon/enable-indicators: "true"
     /org/cinnamon/desktop/wm/preferences/theme: "'Sweet-Ambar'"
     /org/cinnamon/desktop/interface/gtk-theme: "'Sweet-Ambar'"
-    /org/cinnamon/theme/name: "'Mint-Y-Dark-Purple'"
+    /org/cinnamon/theme/name: "'Mint-Y-Dark-Orange'"
     /org/cinnamon/desktop/interface/icon-theme: "'Tela'"
   gtk_themes:
     - name: Sweet

@@ -33,6 +33,9 @@
 - import_tasks: tasks/fedora/icons.yml
   tags:
     - vanity
+- import_tasks: tasks/fedora/backdrops.yml
+  tags:
+    - vanity
 - import_tasks: tasks/fedora/cinnamon.yml
   tags:
     - vanity
