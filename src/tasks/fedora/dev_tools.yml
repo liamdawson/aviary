@@ -9,3 +9,12 @@
       - zeal
       - libxcrypt-compat
     state: present
+
+- name: update max user watches
+  become: yes
+  copy:
+    src: dev_tools/99-max-user-watches.conf
+    dest: /etc/sysctl.d/99-max-user-watches.conf
+    mode: 0755
+    owner: root
+    group: root
