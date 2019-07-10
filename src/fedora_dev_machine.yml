@@ -39,10 +39,4 @@
 - import_tasks: tasks/fedora/cinnamon.yml
   tags:
     - vanity
-- import_tasks: tasks/shared/dev_tools.yml
-  tags:
-    - dev
-    - tools
-- import_tasks: tasks/shared/shell.yml
-  tags:
-    - shell
+- import_tasks: nix_dev_machine.yml

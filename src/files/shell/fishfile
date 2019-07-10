@@ -1,9 +1,12 @@
 oh-my-fish/plugin-nodenv
 oh-my-fish/plugin-rbenv
 oh-my-fish/plugin-pyenv
+oh-my-fish/plugin-rustup
 liamdawson/fish-plugin-sbin
 liamdawson/fish-plugin-snap
 liamdawson/fish-plugin-local-bin
 liamdawson/fish-plugin-linuxbrew
+liamdawson/fish-plugin-macos-gpg-ssh-agent
 
 franciscolourenco/done
+otms61/fish-pet

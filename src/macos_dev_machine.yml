@@ -7,7 +7,4 @@
     - gui
     - dev
     - tools
-- import_tasks: tasks/shared/dev_tools.yml
-  tags:
-    - dev
-    - tools
+- import_tasks: nix_dev_machine.yml

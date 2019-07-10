@@ -1,0 +1,8 @@
+---
+- import_tasks: tasks/shared/dev_tools.yml
+  tags:
+    - dev
+    - tools
+- import_tasks: tasks/shared/shell.yml
+  tags:
+    - shell
