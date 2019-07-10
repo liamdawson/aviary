@@ -1,0 +1,13 @@
+---
+- name: brew install gui dev tools
+  homebrew_cask:
+    name:
+      - trailer
+      - ccmenu
+      - aws-vault
+      - mono-mdk
+      - vagrant
+      - vagrant-manager
+      - visual-studio-code
+      - dash
+    state: present

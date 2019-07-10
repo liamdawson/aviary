@@ -1,7 +1,6 @@
 ---
 - name: install expected packages
-  become: yes
-  brew:
+  homebrew:
     name:
       - fish
       - terminal-notifier

@@ -3,10 +3,24 @@
   homebrew:
     path: "/home/linuxbrew/.linuxbrew/bin:/usr/local/bin"
     name:
-      - git
-      - vim
+      - adr-tools
+      - awscli
       - fish
-      - nodenv
-      - rbenv
-      - pyenv
+      - fzf
+      - git
+      - gnupg
+      - goenv
+      - heroku
+      - httpie
       - hub
+      - jq
+      - node-build
+      - nodenv
+      - pet
+      - pyenv
+      - rbenv
+      - ripgrep
+      - ruby-build
+      - shfmt
+      - vim
+      - xsv

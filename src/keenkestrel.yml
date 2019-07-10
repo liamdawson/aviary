@@ -1,0 +1,6 @@
+---
+- name: setup machine
+  hosts: keenkestrel
+  tasks:
+    - import_tasks: macos_dev_machine.yml
+
