@@ -1,8 +1,11 @@
 ---
 - name: create fish config directories
   file:
-    path: ~/.config/fish/conf.d
+    path: "{{ item }}"
     state: directory
+  loop:
+    - ~/.config/fish/conf.d
+    - ~/.config/fish/functions
 
 - name: add fish config files
   copy:
@@ -12,7 +15,7 @@
   loop:
     - from: shell/fishfile
       to: fishfile
-    - from: shell/fisher.fish
-      to: conf.d/fisher.fish
-    - from: shell/functions/fish_prompt.fish
-      to: functions/fish_prompt.fish
+    - from: shell/conf.d/
+      to: conf.d/
+    - from: shell/functions/
+      to: functions/
