@@ -9,4 +9,8 @@
 - import_tasks: tasks/shared/update.yml
   tags:
     - update
-- import_tasks: shared/gui_dev_tools.yml
+- import_tasks: tasks/shared/gui_dev_tools.yml
+  tags:
+    - gui
+    - dev
+    - tools
