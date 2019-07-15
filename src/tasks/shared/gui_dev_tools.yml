@@ -1,0 +1,7 @@
+---
+- name: shared hyper configuration
+  become: no
+  copy:
+    src: gui_dev_tools/.hyper.js
+    dest: ~/.hyper.js
+    
