@@ -14,3 +14,4 @@
     - gui
     - dev
     - tools
+- import_tasks: common.yml

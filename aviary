@@ -1,0 +1,38 @@
+#!/usr/bin/env sh
+
+cd ~/.aviary || exit 1
+
+if [ ! -d ~/.local/share/aviary ]
+then
+  mkdir -p ~/.local/share/aviary
+fi
+
+if [ ! -f ~/.local/share/aviary/bin/activate ]
+then
+  python3 -m venv ~/.local/share/aviary
+fi
+
+. ~/.local/share/aviary/bin/activate
+
+if ! command -v ansible-playbook >/dev/null
+then
+  pip install ansible ansible-lint
+fi
+
+subcmd="$1"
+shift
+
+case "$subcmd" in
+  run)
+    sudo -v
+    ansible-playbook -i "$(hostname -s)," \
+      -e "ansible_connection=local" \
+      -e "ansible_python_interpreter=$(command -v python)" \
+          "src/$(hostname -s).yml" \
+          "$@";;
+  lint)
+    echo "TODO";;
+  *)
+    echo "unknown command"
+    exit 1;;
+esac

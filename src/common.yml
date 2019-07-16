@@ -1,0 +1,11 @@
+---
+- name: ensure local bin
+  file:
+    path: ~/.local/bin
+    state: directory
+
+- name: symlink aviary executable
+  file:
+    path: ~/.local/bin/aviary
+    src: ~/.aviary/aviary
+    state: link
