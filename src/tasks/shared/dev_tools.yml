@@ -24,3 +24,4 @@
       - shfmt
       - vim
       - xsv
+      - cloc

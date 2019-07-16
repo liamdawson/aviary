@@ -30,6 +30,8 @@ case "$subcmd" in
       -e "ansible_python_interpreter=$(command -v python)" \
           "src/$(hostname -s).yml" \
           "$@";;
+  code)
+    code .;;
   lint)
     echo "TODO";;
   *)
