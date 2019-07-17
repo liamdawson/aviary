@@ -3,6 +3,9 @@ oh-my-fish/plugin-rbenv
 oh-my-fish/plugin-pyenv
 oh-my-fish/plugin-rustup
 oh-my-fish/plugin-bang-bang
+oh-my-fish/plugin-gi
+oh-my-fish/plugin-license
+oh-my-fish/plugin-pbcopy
 liamdawson/fish-plugin-sbin
 liamdawson/fish-plugin-snap
 liamdawson/fish-plugin-local-bin
