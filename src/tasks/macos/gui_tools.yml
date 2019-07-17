@@ -1,0 +1,6 @@
+---
+- name: install general GUI tools
+  homebrew_cask:
+    state: present
+    name:
+      - karabiner-elements
