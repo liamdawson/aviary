@@ -10,4 +10,5 @@
       - vagrant-manager
       - visual-studio-code
       - dash
+      - hyper
     state: present
