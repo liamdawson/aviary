@@ -22,14 +22,19 @@ fi
 subcmd="$1"
 shift
 
+with_ansible_vars() {
+  "$@" -i "$(hostname -s)," -e "ansible_connection=local" -e "ansible_python_interpreter=$(command -v python)"
+}
+
 case "$subcmd" in
   run)
     sudo -v
-    ansible-playbook -i "$(hostname -s)," \
-      -e "ansible_connection=local" \
-      -e "ansible_python_interpreter=$(command -v python)" \
-          "src/$(hostname -s).yml" \
-          "$@";;
+    with_ansible_vars ansible-playbook "src/$(hostname -s).yml" "$@";;
+  facts)
+    with_ansible_vars ansible -m setup "$(hostname -s)";;
+  retry)
+    "$0" run --limit "@${HOME}/.ansible-retry-aviary/$(hostname -s).retry"
+    ;;
   code)
     code .;;
   lint)

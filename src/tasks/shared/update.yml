@@ -17,3 +17,8 @@
   dnf:
     name: '*'
     state: latest
+
+- name: rust update
+  shell: "[ ! -f ~/.cargo/bin/rustup ] || ~/.cargo/bin/rustup update"
+  args:
+    warn: false

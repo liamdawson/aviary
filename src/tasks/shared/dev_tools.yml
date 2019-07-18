@@ -25,3 +25,9 @@
       - vim
       - xsv
       - cloc
+      - rustup-init
+
+- name: install rustup
+  command: rustup-init --default-toolchain stable --no-modify-path -y
+  args:
+    creates: ~/.rustup
