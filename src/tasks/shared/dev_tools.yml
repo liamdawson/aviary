@@ -15,7 +15,6 @@
       - jq
       - node-build
       - nodenv
-      - pet
       - pyenv
       - rbenv
       - ripgrep
