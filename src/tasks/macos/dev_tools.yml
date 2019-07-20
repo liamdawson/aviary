@@ -1,0 +1,11 @@
+---
+- name: install brew packages
+  homebrew:
+    path: "/home/linuxbrew/.linuxbrew/bin:/usr/local/bin"
+    name:
+      - heroku
+
+- name: install rustup
+  command: rustup-init --default-toolchain stable --no-modify-path -y
+  args:
+    creates: ~/.rustup
