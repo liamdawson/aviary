@@ -2,29 +2,30 @@
 
 cd ~/.aviary || exit 1
 
-if [ ! -d ~/.local/share/aviary ]
-then
-  mkdir -p ~/.local/share/aviary
+if ! command -v pipsi >/dev/null; then
+  pip3 install --user pipsi || pip install --user pipsi
 fi
 
-if [ ! -f ~/.local/share/aviary/bin/activate ]
-then
-  python3 -m venv ~/.local/share/aviary
+if ! command -v ansible >/dev/null; then
+  pipsi install ansible
+  pipsi install ansible-lint
+  pipsi install molecule
 fi
 
-. ~/.local/share/aviary/bin/activate
+python_interpreter() {
+  if [ -x /usr/bin/python3 ]; then
+    echo "/usr/bin/python3"
+  else
+    command -v python3 || command -v python
+  fi
+}
 
-if ! command -v ansible-playbook >/dev/null
-then
-  pip install ansible ansible-lint
-fi
+with_ansible_vars() {
+  "$@" -i "$(hostname -s)," -e "ansible_connection=local" -e "ansible_python_interpreter=$(python_interpreter)"
+}
 
 subcmd="$1"
 shift
-
-with_ansible_vars() {
-  "$@" -i "$(hostname -s)," -e "ansible_connection=local" -e "ansible_python_interpreter=$(command -v python)"
-}
 
 case "$subcmd" in
   run)
