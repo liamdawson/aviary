@@ -1,0 +1,11 @@
+---
+- name: tap homebrew fonts for linux
+  homebrew_tap:
+    name: linuxbrew/fonts
+    state: present
+
+- name: install preferred fonts
+  homebrew:
+    name:
+      - font-ubuntu
+    state: present

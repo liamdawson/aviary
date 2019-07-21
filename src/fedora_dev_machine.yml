@@ -39,4 +39,7 @@
 - import_tasks: tasks/fedora/cinnamon.yml
   tags:
     - vanity
+- import_tasks: tasks/fedora/fonts.yml
+  tags:
+    - vanity
 - import_tasks: nix_dev_machine.yml
