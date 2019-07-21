@@ -11,6 +11,7 @@ vanity:
     /org/cinnamon/desktop/interface/gtk-theme: "'Sweet-Ambar'"
     /org/cinnamon/theme/name: "'Mint-Y-Dark-Orange'"
     /org/cinnamon/desktop/interface/icon-theme: "'Tela'"
+    /org/gnome/libgnomekbd/keyboard/options: "['caps\\tcaps:escape']"
   gtk_themes:
     - name: Sweet
       src: gtk/Sweet.tar.xz
