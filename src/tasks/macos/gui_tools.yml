@@ -1,4 +1,27 @@
 ---
+- name: install mas for App Store app installation
+  homebrew:
+    name: mas
+    state: present
+
+- name: install mac app store apps
+  mas:
+    state: present
+    id: "{{ item }}"
+  loop:
+    - '1274495053' # Microsoft To-Do
+    - '784801555' # Microsoft OneNote
+    - '497799835' # xcode
+    - '1116599239' # NordVPN
+    - '409183694' # Keynote
+    - '408981434' # iMovie
+    - '1278508951' # Trello
+    - '425424353' # The Unarchiver
+    - '409201541' # Pages
+    - '1262957439' # Textual IRC
+    - '747648890' # Telegram
+    - '409203825' # Numbers
+
 - name: install general GUI tools
   homebrew_cask:
     state: present
