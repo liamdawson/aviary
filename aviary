@@ -38,6 +38,8 @@ case "$subcmd" in
     ;;
   code)
     code .;;
+  update)
+    git pull && ./aviary run;;
   lint)
     echo "TODO";;
   *)
