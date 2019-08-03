@@ -18,7 +18,7 @@
   file:
     path: "~/.config/systemd/user/"
     state: directory
-    mode: 0750
+    mode: 0755
     recurse: yes
     follow: no
 
@@ -70,7 +70,7 @@
         remote_src: yes
         src: /etc/xdg/autostart/gnome-keyring-ssh.desktop
         dest: ~/.config/autostart/gnome-keyring-ssh.desktop
-        mode: 0750
+        mode: 0755
         owner: "{{ ansible_user }}"
         group: "{{ ansible_user }}"
     

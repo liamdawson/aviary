@@ -11,7 +11,7 @@
   copy:
     src: "{{ item.from }}"
     dest: "~/.config/fish/{{ item.to }}"
-    mode: 0700
+    mode: 0644
   loop:
     - from: shell/fishfile
       to: fishfile
