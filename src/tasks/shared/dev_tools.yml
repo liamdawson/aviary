@@ -10,7 +10,6 @@
       - fzf
       - git
       - gnupg
-      - goenv
       - httpie
       - hub
       - jq
