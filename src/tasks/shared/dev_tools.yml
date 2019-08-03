@@ -10,6 +10,7 @@
       - fzf
       - git
       - gnupg
+      - golang
       - httpie
       - hub
       - jq
