@@ -5,6 +5,7 @@
     name:
       - adr-tools
       - awscli
+      - cloc
       - fish
       - fzf
       - git
@@ -19,11 +20,10 @@
       - rbenv
       - ripgrep
       - ruby-build
+      - rustup-init
       - shfmt
       - vim
       - xsv
-      - cloc
-      - rustup-init
 
 - name: install rustup
   command: rustup-init --default-toolchain stable --no-modify-path -y
