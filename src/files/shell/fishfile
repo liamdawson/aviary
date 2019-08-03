@@ -7,6 +7,7 @@ oh-my-fish/plugin-gi
 oh-my-fish/plugin-license
 oh-my-fish/plugin-pbcopy
 oh-my-fish/plugin-aws
+liamdawson/fish-plugin-gobin
 liamdawson/fish-plugin-sbin
 liamdawson/fish-plugin-snap
 liamdawson/fish-plugin-local-bin
