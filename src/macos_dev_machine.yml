@@ -1,18 +1,34 @@
 ---
-- import_tasks: tasks/macos/shell.yml
-  tags:
-    - shell
-- import_tasks: tasks/macos/dev_tools.yml
-  tags:
-    - dev
-    - tools
-- import_tasks: tasks/macos/gui_tools.yml
-  tags:
-    - gui
-    - tools
-- import_tasks: tasks/macos/gui_dev_tools.yml
-  tags:
-    - gui
-    - dev
-    - tools
-- import_tasks: nix_dev_machine.yml
+- name: configure a macOS dev machine
+  hosts: all
+  handlers:
+    - name: Kill Dock
+      command: killall Dock
+
+    - name: Kill Finder
+      command: killall Finder
+  tasks:
+    - import_tasks: tasks/macos/shell.yml
+      tags:
+        - shell
+    - import_tasks: tasks/macos/dev_tools.yml
+      tags:
+        - dev
+        - tools
+    - import_tasks: tasks/macos/gui_tools.yml
+      tags:
+        - gui
+        - tools
+    - import_tasks: tasks/macos/gui_dev_tools.yml
+      tags:
+        - gui
+        - dev
+        - tools
+    - import_tasks: tasks/macos/settings.yml
+      tags:
+        - gui
+        - os
+        - os:macos
+    - import_tasks: nix_dev_machine.yml
+
+

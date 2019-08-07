@@ -2,13 +2,14 @@
 - name: brew install gui dev tools
   homebrew_cask:
     name:
-      - gitify
-      - ccmenu
       - aws-vault
+      - ccmenu
+      - dash
+      - gitify
+      - hyper
       - mono-mdk
+      - muzzle
       - vagrant
       - vagrant-manager
       - visual-studio-code
-      - dash
-      - hyper
     state: present

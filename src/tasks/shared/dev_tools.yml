@@ -19,6 +19,7 @@
       - pyenv
       - rbenv
       - ripgrep
+      - rsync
       - ruby-build
       - rustup-init
       - shfmt
