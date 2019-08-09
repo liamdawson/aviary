@@ -5,6 +5,7 @@
     name:
       - adr-tools
       - awscli
+      - bat
       - cloc
       - fish
       - fzf
