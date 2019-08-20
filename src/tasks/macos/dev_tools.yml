@@ -4,6 +4,8 @@
     path: "/home/linuxbrew/.linuxbrew/bin:/usr/local/bin"
     name:
       - heroku
+      - libvirt
+      - qemu
 
 - name: install rustup
   command: rustup-init --default-toolchain stable --no-modify-path -y
