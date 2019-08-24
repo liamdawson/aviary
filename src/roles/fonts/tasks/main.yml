@@ -1,0 +1,9 @@
+---
+- name: install preferred fonts on Ubuntu
+  when: ansible_facts['distribution'] == 'Ubuntu'
+  become: true
+  package:
+    name:
+      - fonts-roboto
+      - fonts-noto
+      - fonts-ubuntu

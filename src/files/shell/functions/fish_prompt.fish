@@ -1,6 +1,5 @@
 function fish_prompt --description 'Write out the prompt'
     set -l last_status $status
-    set -l is_root [ (id -u) -eq 0 ]
 
     echo
 
@@ -31,7 +30,7 @@ function fish_prompt --description 'Write out the prompt'
 
     echo
 
-    if $is_root
+    if [ (id -u) -eq 0 ]
         echo -n '%> '
     else
         echo -n '$> '

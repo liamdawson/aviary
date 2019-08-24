@@ -1,0 +1,12 @@
+---
+- import_playbook: meta_plays/core.yml
+
+- name: configure machine
+  hosts: owl
+  roles:
+    - name: fonts
+
+- name: setup machine
+  hosts: owl
+  tasks:
+    - import_tasks: nix_dev_machine.yml

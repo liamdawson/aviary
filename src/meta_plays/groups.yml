@@ -1,0 +1,13 @@
+---
+- name: groups by machine characteristics
+  hosts: all
+  tasks:
+    - group_by:
+        key: "os_{{ ansible_facts['distribution'] }}_{{ ansible_facts['distribution_release'] }}"
+        parents:
+          - "os_{{ ansible_facts['distribution'] }}"
+
+    - group_by:
+        key: "virt_{{ ansible_facts['virtualization_type'] }}_{{ ansible_facts['virtualization_role'] }}"
+        parents:
+          - "virt_{{ ansible_facts['virtualization_type'] }}"
