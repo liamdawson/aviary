@@ -1,0 +1,10 @@
+---
+- name: install vs code
+  when: false # TODO
+  fail:
+
+- name: install vs code setting sync
+  shell: "! command -v code || code --install-extension shan.code-settings-sync" 
+  args:
+    warn: false
+  changed_when: false

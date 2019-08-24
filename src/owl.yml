@@ -6,6 +6,7 @@
   roles:
     - name: fonts
     - name: interactivity
+    - name: apps.vscode
 
 - name: setup machine
   hosts: owl
