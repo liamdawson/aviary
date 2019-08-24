@@ -1,0 +1,12 @@
+---
+- name: determine dev packages
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "{{ ansible_facts['distribution'] }}-{{ ansible_facts['distribution_release'] }}.yml"
+    - "{{ ansible_facts['distribution'] }}.yml"
+
+- name: install dev packages
+  become: true
+  package:
+    state: present
+    name: "{{ machine_dev_packages }}"

@@ -4,6 +4,7 @@
 - name: configure machine
   hosts: owl
   roles:
+    - name: dev_packages
     - name: fonts
     - name: interactivity
     - name: apps.vscode
