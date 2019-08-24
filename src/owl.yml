@@ -5,6 +5,7 @@
   hosts: owl
   roles:
     - name: fonts
+    - name: interactivity
 
 - name: setup machine
   hosts: owl

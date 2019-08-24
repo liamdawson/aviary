@@ -3,6 +3,7 @@
   when: ansible_facts['distribution'] == 'Ubuntu'
   become: true
   package:
+    state: present
     name:
       - fonts-roboto
       - fonts-noto

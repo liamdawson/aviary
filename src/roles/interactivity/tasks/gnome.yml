@@ -1,0 +1,34 @@
+---
+- when: ansible_facts['env'].get('XDG_CURRENT_DESKTOP', '') is search('gnome', ignorecase=True)
+  block:
+    - name: install ansible prereqs on Ubuntu
+      become: true
+      when: "'os_Ubuntu' in group_names"
+      package:
+        state: present
+        name:
+          - python3-psutil
+
+    - name: configure gnome gsettings
+      dconf:
+        state: present
+        key: "{{ item.key }}"
+        value: "{{ item.value }}"
+      loop: "{{ gnome_gsettings }}"
+
+  vars:
+    gnome_gsettings:
+      - key: /org/gnome/desktop/input-sources/xkb-options
+        value: "['terminate:ctrl_alt_bksp', 'caps\\tcaps:escape']"
+      - key: /org/gnome/desktop/peripherals/touchpad/natural-scroll
+        value: "false"
+      - key: /org/gnome/desktop/peripherals/touchpad/tap-to-click
+        value: "true"
+      - key: /org/gnome/desktop/peripherals/touchpad/two-finger-scrolling-enabled
+        value: "true"
+      - key: /org/gnome/desktop/peripherals/touchpad/tap-and-drag
+        value: "true"
+      - key: /org/cinnamon/settings-daemon/peripherals/touchpad/clickpad-click
+        value: "2"
+      - key: /org/cinnamon/settings-daemon/peripherals/touchpad/horizontal-scrolling
+        value: "true"
