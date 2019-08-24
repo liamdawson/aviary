@@ -19,7 +19,7 @@
   vars:
     gnome_gsettings:
       - key: /org/gnome/desktop/input-sources/xkb-options
-        value: "['terminate:ctrl_alt_bksp', 'caps\\tcaps:escape']"
+        value: "['terminate:ctrl_alt_bksp', 'caps:escape']"
       - key: /org/gnome/desktop/peripherals/touchpad/natural-scroll
         value: "false"
       - key: /org/gnome/desktop/peripherals/touchpad/tap-to-click
