@@ -15,7 +15,7 @@ elif is_command dnf; then
 fi
 
 if ! [ -f ~/.ssh/id_ed25519 ]; then
-  ssh-keygen -t ed25519
+  ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519
   echo "Add the following as a deploy key (with write access)"
   cat ~/.ssh/id_ed25519.pub
   echo "at https://github.com/liamdawson/aviary/settings/keys"
