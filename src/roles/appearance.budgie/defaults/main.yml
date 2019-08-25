@@ -8,3 +8,6 @@ appearance_budgie:
       - budgie-weathershow-applet
       - budgie-app-launcher-applet
       - arc-theme
+  dconf:
+    - key: /org/gnome/desktop/interface/gtk-theme
+      value: Arc-Darker

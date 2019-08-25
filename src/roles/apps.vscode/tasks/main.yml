@@ -1,7 +1,21 @@
 ---
-- name: install vs code
-  when: false # TODO
-  fail:
+- name: install vs code on Ubuntu
+  when: ansible_facts['distribution'] == 'Ubuntu'
+  become: true
+  block:
+    - name: add repo key
+      apt_key:
+        url: https://packages.microsoft.com/keys/microsoft.asc
+
+    - name: add repo
+      apt_repository:
+        repo: deb https://packages.microsoft.com/repos/vscode stable main
+        update_cache: true
+
+    - name: install vs code
+      package:
+        state: present
+        name: code
 
 - name: install vs code setting sync
   shell: "! command -v code || code --install-extension shan.code-settings-sync" 

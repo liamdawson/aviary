@@ -2,6 +2,9 @@
 
 cd ~/.aviary || exit 1
 
+# TODO: more intelligent check first
+export PATH="$PATH:${HOME}/.local/bin"
+
 python_interpreter() {
   if [ -x /usr/bin/python3 ]; then
     echo "/usr/bin/python3"
