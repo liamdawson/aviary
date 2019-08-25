@@ -1,0 +1,5 @@
+---
+machine_virt_packages:
+  - libvirt-daemon-system
+  - libvirt-clients
+  - qemu-kvm

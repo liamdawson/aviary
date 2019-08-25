@@ -1,0 +1,14 @@
+---
+- name: add backports ppa
+  when: ansible_facts['distribution'] == 'Ubuntu'
+  become: true
+  apt_repository:
+    state: present
+    repo: ppa:ubuntubudgie/backports
+    update_cache: true
+
+- name: install packages
+  become: true
+  package:
+    state: present
+    name: "{{ appearance_budgie.packages[ansible_facts['distribution']] }}"

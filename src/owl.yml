@@ -1,16 +1,27 @@
 ---
-- import_playbook: meta_plays/core.yml
+# - import_playbook: meta_plays/core.yml
 
 - name: configure machine
   hosts: owl
   roles:
-    - name: dev_packages
+    - name: prereqs
     - name: fonts
     - name: interactivity
-    - name: appearance
+    - name: appearance.budgie
+    - name: security
+    - name: virtualization
     - name: apps.vscode
 
-- name: setup machine
-  hosts: owl
-  tasks:
-    - import_tasks: nix_dev_machine.yml
+# - name: install machine-specific packages
+#   become: true
+#   hosts: owl
+#   tasks:
+#     - name: install extra packages
+#       package:
+#         state: present
+#         name: "{{ host_extra_packages }}"
+# 
+# - name: setup machine
+#   hosts: owl
+#   tasks:
+#     - import_tasks: nix_dev_machine.yml

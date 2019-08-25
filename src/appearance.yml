@@ -1,4 +1,0 @@
----
-- name: install things used for appearance's sake
-  roles:
-    - name: fonts

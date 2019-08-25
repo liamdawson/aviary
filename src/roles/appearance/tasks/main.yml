@@ -1,9 +1,0 @@
----
-- name: Ubuntu (Budgie) theme
-  when: ansible_facts['distribution'] == 'Ubuntu'
-  block:
-    - name: install arc theme
-      package:
-        state: present
-        name: arc-theme
-

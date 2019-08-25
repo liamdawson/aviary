@@ -1,0 +1,4 @@
+---
+host_extra_packages:
+  - yubikey-manager-qt
+  - yubikey-personalization-gui

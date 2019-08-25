@@ -1,3 +1,6 @@
 ---
 machine_dev_packages:
+  - aptitude
+  - python3
+  - python3-pip
   - libffi-dev

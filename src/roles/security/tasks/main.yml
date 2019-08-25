@@ -1,0 +1,25 @@
+---
+- name: determine security packages
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "{{ ansible_facts['distribution'] }}-{{ ansible_facts['distribution_release'] }}.yml"
+    - "{{ ansible_facts['distribution'] }}.yml"
+
+- name: Ubuntu configuration
+  when: ansible_facts['distribution'] == 'Ubuntu'
+  import_tasks: ubuntu.yml
+
+- name: install security packages
+  become: true
+  package:
+    state: present
+    name: "{{ machine_security_packages }}"
+
+# TODO: automate `udevadm control --reload-rules`
+- name: install udev rules
+  when: ansible_facts['system'] == 'Linux'
+  become: true
+  copy:
+    src: yubikey-udev.rules
+    dest: /etc/udev/rules.d/70-u2f.rules
+    mode: 0755

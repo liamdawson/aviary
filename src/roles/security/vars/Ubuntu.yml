@@ -1,0 +1,5 @@
+---
+machine_security_packages:
+  - yubikey-personalization
+  - yubico-piv-tool
+  - yubikey-manager

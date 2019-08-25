@@ -1,0 +1,6 @@
+---
+- name: enable yubico ppa
+  become: yes
+  apt_repository:
+    repo: ppa:yubico/stable
+    update_cache: true

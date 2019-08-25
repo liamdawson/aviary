@@ -1,0 +1,12 @@
+---
+- name: determine virtualization packages
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "{{ ansible_facts['distribution'] }}-{{ ansible_facts['distribution_release'] }}.yml"
+    - "{{ ansible_facts['distribution'] }}.yml"
+
+- name: install virtualization packages
+  become: true
+  package:
+    state: present
+    name: "{{ machine_virt_packages }}"
