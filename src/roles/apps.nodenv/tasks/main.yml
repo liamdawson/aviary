@@ -1,0 +1,25 @@
+---
+- name: install prerequisite packages for nodenv
+  become: true
+  package:
+    state: present
+    name: "{{ nodenv_prereq_packages[ansible_facts['distribution']] }}"
+
+- name: install formula for nodenv
+  vars:
+    prereq_formula: "{{ nodenv_prereq_formula[ansible_facts['distribution']] | default([]) }}"
+  homebrew:
+    state: present
+    name: "{{ prereq_formula + ['nodenv'] }}"
+
+- name: install node versions
+  command: "env {{ nodenv_compile_vars[ansible_facts['distribution']] | default('') }} nodenv install {{ item }}"
+  args:
+    creates: "~/.nodenv/versions/{{ item }}"
+  loop: "{{ nodenv_node_versions }}"
+
+- name: set default node version
+  command: "nodenv global {{ nodenv_default_version }}"
+  args:
+    warn: false
+  changed_when: false

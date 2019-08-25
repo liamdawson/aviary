@@ -10,7 +10,15 @@
     - name: appearance.budgie
     - name: security
     - name: virtualization
+      vars:
+        virtualization_include_gui: true
+    - name: shell
+    - name: apps.devtools
     - name: apps.vscode
+    - name: apps.pyenv
+    - name: apps.rbenv
+    - name: apps.nodenv
+    - name: apps.misc
 
 # - name: install machine-specific packages
 #   become: true

@@ -1,0 +1,43 @@
+---
+- name: determine shell packages
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "{{ ansible_facts['distribution'] }}-{{ ansible_facts['distribution_release'] }}.yml"
+    - "{{ ansible_facts['distribution'] }}.yml"
+
+- name: install shell packages
+  become: true
+  package:
+    state: present
+    name: "{{ machine_shell_packages }}"
+
+- name: set shell
+  become: true
+  user:
+    name: liamdawson
+    shell: "{{ item }}"
+  with_first_found:
+    - /usr/bin/fish
+    - /usr/local/bin/fish
+
+- name: create fish config directories
+  file:
+    path: "{{ item }}"
+    state: directory
+  loop:
+    - ~/.config/fish/conf.d
+    - ~/.config/fish/functions
+
+- name: add fish config files
+  copy:
+    src: "{{ item.from }}"
+    dest: "~/.config/fish/{{ item.to }}"
+    mode: 0644
+  loop:
+    - from: shell/fishfile
+      to: fishfile
+    - from: shell/conf.d/
+      to: conf.d/
+    - from: shell/functions/
+      to: functions/
+

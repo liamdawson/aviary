@@ -1,0 +1,4 @@
+---
+nodenv_node_versions:
+  - 12.8.0
+nodenv_default_version: 12.8.0

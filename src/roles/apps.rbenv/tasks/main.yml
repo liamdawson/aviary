@@ -1,0 +1,25 @@
+---
+- name: install prerequisite packages for rbenv
+  become: true
+  package:
+    state: present
+    name: "{{ rbenv_prereq_packages[ansible_facts['distribution']] }}"
+
+- name: install formula
+  vars:
+    prereq_formula: "{{ rbenv_prereq_formula[ansible_facts['distribution']] | default([]) }}"
+  homebrew:
+    state: present
+    name: "{{ prereq_formula + ['rbenv'] }}"
+
+- name: install ruby versions
+  command: "env {{ rbenv_compile_vars[ansible_facts['distribution']] | default('') }} rbenv install {{ item }}"
+  args:
+    creates: "~/.rbenv/versions/{{ item }}"
+  loop: "{{ rbenv_ruby_versions }}"
+
+- name: set default ruby version
+  command: "rbenv global {{ rbenv_default_version }}"
+  args:
+    warn: false
+  changed_when: false

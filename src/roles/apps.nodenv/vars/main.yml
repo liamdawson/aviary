@@ -1,0 +1,12 @@
+---
+nodenv_prereq_packages:
+  # only defines Ruby ones??
+  Ubuntu: []
+
+nodenv_prereq_formula:
+  # only defines Ruby ones??
+  Ubuntu: []
+
+noenv_compile_vars:
+  Ubuntu: >-
+    CFLAGS="-O2"

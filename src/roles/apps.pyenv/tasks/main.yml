@@ -1,0 +1,25 @@
+---
+- name: install prerequisite packages for pyenv
+  become: true
+  package:
+    state: present
+    name: "{{ pyenv_prereq_packages[ansible_facts['distribution']] }}"
+
+- name: install formula
+  vars:
+    prereq_formula: "{{ pyenv_prereq_formula[ansible_facts['distribution']] | default([]) }}"
+  homebrew:
+    state: present
+    name: "{{ prereq_formula + ['pyenv'] }}"
+
+- name: install python versions
+  command: "env {{ pyenv_compile_vars[ansible_facts['distribution']] | default('') }} pyenv install {{ item }}"
+  args:
+    creates: "~/.pyenv/versions/{{ item }}"
+  loop: "{{ pyenv_python_versions }}"
+
+- name: set default python version
+  command: "pyenv global {{ pyenv_default_version }}"
+  args:
+    warn: false
+  changed_when: false

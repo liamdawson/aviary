@@ -1,0 +1,4 @@
+---
+machine_shell_packages:
+  - fish
+  - libnotify4

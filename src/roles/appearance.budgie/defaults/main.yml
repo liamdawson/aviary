@@ -2,11 +2,8 @@
 appearance_budgie:
   packages:
     Ubuntu:
-      - budgie-sys-monitor-applet
-      - budgie-previews-applet
       - budgie-takeabreak-applet
       - budgie-weathershow-applet
-      - budgie-app-launcher-applet
       - arc-theme
   dconf:
     - key: /org/gnome/desktop/interface/gtk-theme

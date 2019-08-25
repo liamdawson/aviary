@@ -1,0 +1,11 @@
+---
+- name: install misc packages
+  become: true
+  package:
+    name: "{{ apps_misc_all_packages }}"
+    state: present
+
+- name: install misc formula
+  homebrew:
+    name: "{{ apps_misc_all_formula }}"
+    state: present

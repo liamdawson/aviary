@@ -1,8 +1,0 @@
----
-- name: install expected packages
-  become: yes
-  package:
-    name:
-      - fish
-      - libnotify
-    state: present

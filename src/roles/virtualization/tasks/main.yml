@@ -10,3 +10,10 @@
   package:
     state: present
     name: "{{ machine_virt_packages }}"
+
+- name: install gui virtualization packages
+  become: true
+  when: virtualization_include_gui
+  package:
+    state: present
+    name: "{{ machine_virt_gui_packages }}"

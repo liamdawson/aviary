@@ -1,0 +1,4 @@
+---
+pyenv_python_versions:
+  - 3.7.4
+pyenv_default_version: 3.7.4

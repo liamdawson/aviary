@@ -1,0 +1,10 @@
+---
+apps_misc_os_packages:
+  Ubuntu:
+    - neofetch
+
+apps_misc_os_formula:
+  Ubuntu: []
+
+apps_misc_all_packages: "{{ apps_misc_os_packages[ansible_facts['distribution']] + apps_misc_extra_packages }}"
+apps_misc_all_formula: "{{ apps_misc_os_formula[ansible_facts['distribution']] + apps_misc_extra_formula }}"

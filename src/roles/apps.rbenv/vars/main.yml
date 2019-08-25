@@ -1,0 +1,23 @@
+---
+rbenv_prereq_packages:
+  Ubuntu:
+    - autoconf
+    - bison
+    - build-essential
+    - libssl-dev
+    - libyaml-dev
+    - libreadline6-dev
+    - zlib1g-dev
+    - libncurses5-dev
+    - libffi-dev
+    - libgdbm6
+    - libgdbm-dev
+
+rbenv_prereq_formula:
+  Ubuntu:
+    - openssl
+
+rbenv_compile_vars:
+  Ubuntu: >-
+    RUBY_CONFIGURE_OPTS="--with-openssl-dir=/home/linuxbrew/.linuxbrew/opt/openssl"
+    CFLAGS="-O2"

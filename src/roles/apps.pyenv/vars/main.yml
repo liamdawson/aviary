@@ -1,0 +1,30 @@
+---
+pyenv_prereq_packages:
+  Ubuntu:
+    - build-essential
+    - curl
+    - git
+    - libbz2-dev
+    - libffi-dev
+    - liblzma-dev
+    - libncurses5-dev
+    - libncursesw5-dev 
+    - libreadline-dev
+    - libsqlite3-dev
+    - libssl-dev
+    - llvm
+    - make
+    - python-openssl
+    - tk-dev
+    - wget
+    - xz-utils
+    - zlib1g-dev
+
+pyenv_prereq_formula:
+  Ubuntu:
+    - openssl@1.1
+
+pyenv_compile_vars:
+  Ubuntu: >-
+    CONFIGURE_OPTS="--with-openssl=/home/linuxbrew/.linuxbrew/opt/openssl@1.1"
+    CFLAGS="-O2"

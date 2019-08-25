@@ -3,3 +3,8 @@ machine_virt_packages:
   - libvirt-daemon-system
   - libvirt-clients
   - qemu-kvm
+  - virtinst
+
+machine_virt_gui_packages:
+  - virt-manager
+  - virt-viewer
